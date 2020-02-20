@@ -1,0 +1,8 @@
+<app-food-search></app-food-search>
+<div class="conatiner-fluid my-4 mx-4 truYum">
+    <div class="row mb-4">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" *ngFor='let food of filteredFoodItemList'>
+                <app-food-item-info [theFoodItem]="food" (addToCartRequest)="addToCart($event)"></app-food-item-info>
+            </div>
+    </div>
+</div>

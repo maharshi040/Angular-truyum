@@ -1,0 +1,7 @@
+<div class="jumbotron container-fluid search-container">
+    <h2>FIND FOOD</h2>
+    <div class="input-group-prepend my-3">
+        <span class="input-group-text"><i class="material-icons">local_cafe</i></span>
+        <input type="text" #searchBox (input)="onSearch($event)"  placeholder="Search Food" class="form-control"/>
+    </div>
+</div>

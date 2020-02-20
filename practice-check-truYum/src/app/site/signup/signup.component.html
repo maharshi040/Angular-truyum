@@ -1,0 +1,54 @@
+<div class="container-fluid py-5 px-5">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-12 py-4 card">
+                <form [formGroup]="userCreationForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h3>Signup</h3>
+                    <div class="form-group">
+                        <label for="userName">Username:</label>
+                        <input type="text" class="form-control" formControlName="username" id="userName" placeholder="Enter Username">
+                        <div class="text text-danger" *ngIf="userCreationForm.get('username').touched && userCreationForm.get('username').hasError('required')"><small>Username is required</small></div>
+                        <div class="text text-danger" *ngIf="userCreationForm.get('username').dirty && userCreationForm.get('username').hasError('maxlength')"><small>Username cannot exceed 50 characters</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="userPass">First Name:</label>
+                                <input type="text" class="form-control" formControlName="firstName" id="userFirstName" placeholder="Enter First Name">
+                                <div class="text text-danger" *ngIf="userCreationForm.get('firstName').touched && userCreationForm.get('firstName').hasError('required')"><small>First Name is required</small></div>
+                                <div class="text text-danger" *ngIf="userCreationForm.get('firstName').dirty && userCreationForm.get('firstName').hasError('maxlength')"><small>First Name cannot exceed 200 characters</small></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="userPass">Last Name:</label>
+                                <input type="text" class="form-control" formControlName="lastName" id="userLastName" placeholder="Enter Last Name">
+                                <div class="text text-danger" *ngIf="userCreationForm.get('lastName').touched && userCreationForm.get('lastName').hasError('required')"><small>Last Name is required</small></div>
+                                <div class="text text-danger" *ngIf="userCreationForm.get('lastName').dirty && userCreationForm.get('lastName').hasError('maxlength')"><small>Last Name cannot exceed 200 characters</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="userPass">Password:</label>
+                                <input type="password" (input)="onPassword($event,password.value)" class="form-control" formControlName="password" id="userPass" placeholder="Enter Password">
+                                <div class="text text-danger" *ngIf="userCreationForm.get('password').touched && userCreationForm.get('password').hasError('required')"><small>Password is required</small></div>
+                                <div class="text text-danger" *ngIf="userCreationForm.get('password').dirty && userCreationForm.get('password').hasError('minlength')"><small>Password length should be minimum 8 characters</small></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="userPass">Confirm Password:</label>
+                                <input type="password" (input)="onConfirmPassword($event)" #password class="form-control" id="userConfirmPass" placeholder="Enter Your Password Again">
+                                <div class="text text-danger" *ngIf="passwordNotSame"><small>Passwords do not match</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-button">
+                        <button [disabled]="!userCreationForm.valid || passwordNotSame" type="submit" class="btn add-to-cart">Signup</button>
+                        <small>Already have an account? <a href="login.html">Log In</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

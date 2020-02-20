@@ -1,0 +1,32 @@
+<div class="container-fluid my-5">
+		<div class="row">
+			<div class="col-lg-4 offset-lg-4 col-md-12 col-sm-12">
+                <h3 class="mb-4">Cart</h3>
+                <div class="alert alert-danger" *ngIf="cartItems.length == 0; else cart">No items in Cart</div>
+				<ng-template #cart>
+                    <div class="container-fluid card border" *ngFor='let item of cartItems'>
+                        <div class="row py-2 px-1" >
+                            <div class="col-10">
+                                <p class="text text-muted">{{item.name}}</p>
+                            </div>
+                            <div class="col-2 float-right">
+                                <p class="item-price">{{item.price | currency:'INR'}}</p>
+                                <button class="btn" (click)="onRemoveItem(item.id)" type="button"><i class="material-icons text text-muted">delete_forever</i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container-fluid border card mb-5">
+                        <div class="row py-2 px-1">
+                            <div class="col-10">
+                                <p>Total</p>
+                            </div>
+                            <div class="col-2">
+                                <p class="item-price">{{total | currency:'INR'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+			</div>
+		</div>
+	</div>

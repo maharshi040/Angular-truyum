@@ -1,0 +1,194 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
+body
+{
+	font-family: 'Lexend Deca', sans-serif;
+	background-image: url("assets/food-background.jpg");
+}
+
+.item-card{
+	border: 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.add-to-cart
+{
+	background-color: #FF6347;
+	color: white;
+	display: flex;
+    align-items: center;
+	font-size: 15px;
+}
+
+.add-to-cart-icon
+{
+	size: 15px;
+	padding-right: 5px;
+	font-size: 20px;
+}
+
+.item-price
+{
+	color: #A51818;
+}
+
+.free-del-badge
+{
+	background-color: #17A2B8;
+	color: white;
+}
+
+.free-delivery
+{
+	display: flex;
+    align-items: center;
+}
+
+.item-status
+{
+	height: 15px;
+	align-items: center;
+	margin-right: 5px;
+}
+
+.free-del-truck
+{
+	size: 15px;
+	padding-right: 5px;
+	color: #00008B;
+}
+
+.add-to-cart-box
+{
+	display: flex;
+    align-items: center;
+}
+
+.date-of-launch-container
+{
+	text-align: left;
+	width: 101px;
+	margin-left: -15px;
+}
+
+.date-of-launch
+{
+	display: flex;
+    align-items: center;
+	word-wrap: break-word;
+}
+
+.date-of-launch-icon
+{
+	font-size: 18px;
+	margin-right: 5px;
+}
+
+.search-container
+{
+	color: white;
+	background-color: #141A46;
+	background-image: url("http://www.clker.com/cliparts/3/4/5/f/1406801421395763600radiant%20background%20mix.png");
+	background-size: cover;
+}
+
+.active-status
+{
+	margin-right: 5px;
+}
+
+.free-del-status
+{
+	margin-right: 10px;
+}
+
+.error-box
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.del-box
+{
+	margin-left: 15px;
+}
+
+.login-button
+{
+	display: flex;
+	direction: row;
+	justify-content: space-between;
+}
+
+.navbar
+{
+	background-color: #FF6347;
+	color: white;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-account
+{
+	display: flex;
+    align-items: center;
+}
+
+.nav-account-icon
+{
+	margin-right: 5px;
+}
+
+.footer
+{
+	background-color: #FF6347;
+	color: white;
+	display: flex;
+    align-items: center;
+}
+
+.sticky
+{
+	position: fixed;
+    left: 0;
+    bottom: 0;
+	width: 100%;
+}
+
+.navbar-brand{
+	display: flex;
+	align-items: center;
+}
+
+.navbar-brand-icon{
+	margin-right: 5px;
+}
+
+.truyum-verified{
+	display: flex;
+	align-items: center;
+}
+
+.error-page{
+	padding: 10px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-page .div{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.error-page .div .div-para{
+	padding: 20px;
+	margin-top: -70px;
+	font-size: x-large;
+	text-align: center;
+}

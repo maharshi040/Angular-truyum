@@ -1,0 +1,45 @@
+<ng-template *ngIf="isAdmin; then adminList; else customerList;"></ng-template>
+<ng-template #customerList>
+    <div class="card item-card">
+        <img class="card-img-top" [src]="foodItem.imageUrl?foodItem.imageUrl:'assets/food-item-not-available.jpg'">
+        <div class="container-fluid px-3 pt-3">
+            <b class="card-title"><a [routerLink]="['/productDetail',foodItem.id]" [queryParams]="{name:foodItem.name,price:foodItem.price,category:foodItem.category,active:foodItem.active,imageUrl:foodItem.imageUrl,freeDelivery:foodItem.freeDelivery}">{{foodItem.name}}</a></b>
+            <b class="card-title float-right item-price">{{foodItem.price | currency:'INR'}}</b>
+        </div>
+        <div class="container-fluid px-3 pb-3">
+            <small class="card-text"><span [className]="foodItem.active?'badge badge-success item-status':'badge badge-danger item-status'">{{foodItem.active?'Active':'Inactive'}}</span>{{foodItem.category}}</small>
+            <small *ngIf='foodItem.freeDelivery' class="card-text free-delivery float-right"><i class="material-icons free-del-truck">local_shipping</i><span class="badge free-del-badge">FREE</span></small>
+        </div>
+        <div *ngIf="this.cartService.cartItemAdded && this.cartService.itemToBeAdded.id == foodItem.id" class=" mx-3 alert alert-success">
+            <small>Item added successfully to cart</small>
+        </div>
+        <div class="container-fluid px-3 pb-3 add-to-cart-box">
+            <div class="container date-of-launch-container">
+                <small class="cart-text date-of-launch"><i class="material-icons date-of-launch-icon">access_time</i>Launch</small>
+                <small class="cart-text">{{foodItem.dateOfLaunch | date:'shortDate'}}</small>
+            </div>
+            <button type="button" (click)="onAddToCart(foodItem.id)" class="btn add-to-cart float-right"><i class="material-icons add-to-cart-icon">add_shopping_cart</i>  Add to cart</button>
+        </div>      
+    </div>    
+</ng-template>
+<ng-template #adminList>
+    <div class="card">
+        <img class="card-img-top" [src]="foodItem.imageUrl">
+        <div class="container-fluid px-3 pt-3">
+            <b class="card-title"><a [routerLink]="['/productDetail',foodItem.id]" [queryParams]="{name:foodItem.name,price:foodItem.price,category:foodItem.category,active:foodItem.active,imageUrl:foodItem.imageUrl,freeDelivery:foodItem.freeDelivery}">{{foodItem.name}}</a></b>
+            <b class="card-title float-right item-price">{{foodItem.price | currency:'INR'}}</b>
+        </div>
+        <div class="container-fluid px-3 pb-3">
+            <small class="card-text"><span [className]="foodItem.active?'badge badge-success item-status':'badge badge-danger item-status'">{{foodItem.active?'Active':'Inactive'}}</span>{{foodItem.category}}</small>
+            <small *ngIf='foodItem.freeDelivery' class="card-text free-delivery float-right"><i class="material-icons free-del-truck">local_shipping</i><span class="badge free-del-badge">FREE</span></small>
+        </div>
+        <div class="container px-3" id="item1"></div>
+        <div class="container-fluid px-3 pb-3 add-to-cart-box">
+            <div class="container date-of-launch-container">
+                <small class="cart-text date-of-launch"><i class="material-icons date-of-launch-icon">access_time</i>Launch</small>
+                <small class="cart-text">{{foodItem.dateOfLaunch | date:'shortDate'}}</small>
+            </div>
+            <button type="button" (click)="onEdit(foodItem.id)" class="btn add-to-cart float-right"><i class="material-icons add-to-cart-icon">create</i>  Edit</button>
+        </div>      
+    </div>
+</ng-template>

@@ -1,0 +1,21 @@
+<div class="container-fluid py-5 px-5">
+		<div class="row">
+			<div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-12 py-4 card">
+            <form (ngSubmit)="onLogin(username.value,userpass.value)">
+               <h3>Login</h3>
+               <div class="form-group">
+                  <label for="userName">Username:</label>
+                  <input type="text" #username class="form-control" id="userName" placeholder="Enter Username">
+               </div>
+               <div class="form-group">
+                  <label for="userPass">Password:</label>
+                  <input type="password" #userpass class="form-control" id="userPass" placeholder="Enter Password">
+               </div>
+               <div class="login-button">
+                  <button type="submit" class="btn add-to-cart">Login</button>
+                  <small>New here? <a href="signup.html">Sign Up</a></small>
+                </div>
+            </form>
+			</div>
+		</div>
+	</div>

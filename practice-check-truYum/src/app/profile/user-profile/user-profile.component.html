@@ -1,0 +1,30 @@
+<div class="container-fluid py-5 px-5">
+   <div class="row">
+      <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-12 card py-4">
+         <div><h4>Profile Information</h4></div>
+         <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 card border-0">
+               <img class="card-img-top my-3" src="https://i-love-png.com/images/user_png_1449302.png">
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12">
+               <div class="row">
+                  <div class="col-12">
+                     <div><small>Username</small></div>
+                     <div><h6><strong>{{getUser().username}}</strong></h6></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-lg-6 col-md-12 col-sm-12">
+                     <div><small>First Name</small></div>
+                     <div><h6><strong>{{getUser().firstName}}</strong></h6></div>
+                  </div>
+                  <div class="col-lg-6 col-md-12 col-sm-12">
+                     <div><small>Last Name</small></div>
+                     <div><h6><strong>{{getUser().lastName}}</strong></h6></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

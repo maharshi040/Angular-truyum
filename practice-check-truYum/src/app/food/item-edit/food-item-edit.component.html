@@ -1,0 +1,84 @@
+<div class="container-fluid px-5 py-5">
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <h3>Edit Menu Item</h3>
+        <form [formGroup]="itemEditForm" (submit)="updateFoodItem()" method="post" novalidate>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+            <div class="form-group">
+              <label for="itemName">Name:</label>
+              <input formControlName="name" name="name" type="text" class="form-control" id="itemName">
+              <div class="text text-danger" *ngIf="itemEditForm.get('name').touched && itemEditForm.get('name').hasError('required')"><small>Name is required</small></div>
+              <div class="text text-danger" *ngIf="itemEditForm.get('name').dirty && itemEditForm.get('name').hasError('maxlength')"><small>Title cannot exceed 200 characters</small></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+            <div class="form-group">
+              <label for="itemPrice">Price:</label>
+              <input formControlName="price" name="price" type="number" class="form-control" id="itemPrice" required>
+              <div class="text text-danger" *ngIf="itemEditForm.get('price').dirty && itemEditForm.get('price').hasError('required')"><small>Price is required</small></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+            <div class="form-group">
+              <label for="itemDOL">Date of Launch:</label>
+              <input formControlName="dateOfLaunch" name="DOL" type="date" class="form-control" id="itemDOL" >
+              <div class="text text-danger" *ngIf="itemEditForm.get('dateOfLaunch').dirty && itemEditForm.get('dateOfLaunch').hasError('required')"><small>Date is required</small></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+            <div class="form-group">
+              <label for="itemCategory">Category:</label>
+              <select formControlName="category" name="categories" id="itemCategory" class="form-control">
+                <option value=""> Select a Category</option>
+                <option *ngFor="let cat of foodCategories" [ngValue]="cat">{{cat}}</option>
+              </select>
+              <div class="invalid-feedback" *ngIf="itemEditForm.get('category').touched && itemEditForm.get('category').hasError('required')"><small>Category is required</small></div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-12 col-sm-12 mt-2">
+            <div class="form-group">
+              <label for="itemActive">Active:</label>
+              <div>
+                <input type="radio" id="yes" class="active-status" formControlName="active" [value]="true" name="active">Yes
+                <input type="radio" id="no" class="active-status" formControlName="active" [value]="false" name="active">No
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+            <div class="form-group">
+              <input type="checkbox" class="free-del-status" id="itemFreeDelivery" formControlName="freeDelivery">
+              <label for="itemName">Free Delivery</label>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+            <div class="form-group">
+              <button type="submit" [disabled]="!itemEditForm.valid" class="btn add-to-cart">Save</button>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 item-card-preview">
+        <h3 class="mb-3">Preview</h3>
+        <div class="card item-card">
+          <img class="card-img-top" [src]="foodItem.imageUrl?foodItem.imageUrl:'assets/food-item-not-available.jpg'">
+          <div class="container-fluid px-3 pt-3">
+              <b class="card-title">{{itemEditForm.value['name']}}</b>
+              <b class="card-title float-right item-price">{{itemEditForm.value['price'] | currency:'INR'}}</b>
+          </div>
+          <div class="container-fluid px-3 pb-3">
+              <small class="card-text"><span [className]="itemEditForm.value['active']?'badge badge-success item-status':'badge badge-danger item-status'">{{itemEditForm.value['active']?'Active':'Inactive'}}</span>{{itemEditForm.value['category']}}</small>
+              <small *ngIf="itemEditForm.value['freeDelivery']" class="card-text free-delivery float-right"><i class="material-icons free-del-truck">local_shipping</i><span class="badge free-del-badge">FREE</span></small>
+          </div>
+          <div class="container-fluid px-3 pb-3 add-to-cart-box">
+              <div class="container date-of-launch-container">
+                  <small class="cart-text date-of-launch"><i class="material-icons date-of-launch-icon">access_time</i>Launch</small>
+                  <small class="cart-text">{{itemEditForm.value['dateOfLaunch'] | date:'shortDate'}}</small>
+              </div>
+              <button type="button" disabled=true class="btn add-to-cart float-right"><i class="material-icons add-to-cart-icon">add_shopping_cart</i>  Add to cart</button>
+          </div>      
+        </div>
+      </div>
+    </div>
+</div>
